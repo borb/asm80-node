@@ -1,5 +1,5 @@
 {
-  "name": "@borb/asm80",
+  "name": "@justnine/asm80",
   "version": "1.11.14borb0",
   "description": "ASM80 stand-alone assembler (fork of asm80)",
   "main": "asm80.js",
