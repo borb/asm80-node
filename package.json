@@ -1,7 +1,7 @@
 {
-  "name": "asm80",
-  "version": "1.11.14",
-  "description": "ASM80 stand-alone assembler",
+  "name": "@borb/asm80",
+  "version": "1.11.14borb0",
+  "description": "ASM80 stand-alone assembler (fork of asm80)",
   "main": "asm80.js",
   "scripts": {
     "test": "node asm80.js --help",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maly/asm80-node.git"
+    "url": "https://github.com/borb/asm80-node.git"
   },
   "bin": {
     "asm80": "./asm80.js"
@@ -24,16 +24,16 @@
     "6800",
     "1802"
   ],
-  "author": "Martin Maly <maly@maly.cz> (http://www.asm80.com)",
+  "author": "Updates by rob a <rob@aphlor.org>, originated from Martin Maly <maly@maly.cz> (http://www.asm80.com)",
   "engines": {
     "node": ">=10.0",
     "npm": "1"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maly/asm80-node/issues"
+    "url": "https://github.com/borb/asm80-node/issues"
   },
-  "homepage": "https://github.com/maly/asm80-node#readme",
+  "homepage": "https://github.com/borb/asm80-node#readme",
   "dependencies": {
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
