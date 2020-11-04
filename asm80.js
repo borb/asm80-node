@@ -49,7 +49,6 @@ var atob = require("atob");
 
 var pjson = require("./package.json");
 var corejson = require("./core.json");
-//console.log(pjson.version);
 
 var program = require("commander");
 
@@ -125,11 +124,9 @@ var vxx = [null, null];
 
 var mpath = path.parse(fn);
 var root = mpath.dir;
-//console.log(mpath);
 
 ASM.fileGet(function (fn, binary) {
   var nfn = path.resolve(root, fn);
-  //console.log("Include", path.resolve(root,fn));
   return LFS.load(nfn, binary);
 });
 
@@ -175,8 +172,9 @@ if (vxx[0]) {
     console.error("ERROR ", err.msg);
     console.error("at line ", err.s.numline);
     console.error(">>> ", err.s.line);
-  } else console.log(vxx[0]);
-  //+ "\n" + "Line: "+vxx[0].s.numline);
+  } else
+    console.log(vxx[0]);
+
   process.exit(-1);
 }
 
@@ -228,7 +226,6 @@ if (program.output) {
 
 if (ASM.PRAGMAS.indexOf("SEGMENT") >= 0) {
   LFS.save(path.format(npath), outdata);
-  //FS.save(fileEdit+'.hex', hex)
   var mseg = ASM.hex(vx[0], "DSEG");
   npath.ext = ".dseg.hex";
   if (mseg.length > 11) LFS.save(path.format(npath), mseg);
@@ -283,13 +280,12 @@ if (otype === "bin") {
   var mFrom = 0;
   var mTo = 65535;
 
-  //console.log(ASM.BINTO);
-  if (ASM.BINFROM) mFrom = ASM.BINFROM;
-  if (ASM.BINTO) mTo = ASM.BINTO;
+  if (ASM.BINFROM)
+    mFrom = ASM.BINFROM;
+  if (ASM.BINTO)
+    mTo = ASM.BINTO;
   outdata = hextools.hex2bin(hex, mFrom, mTo);
 }
-
-//console.log(npath,path.format(npath));
 
 LFS.save(path.format(npath), outdata);
 

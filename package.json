@@ -1,6 +1,6 @@
 {
   "name": "@justnine/asm80",
-  "version": "1.11.14borb0",
+  "version": "1.11.14-borb1",
   "description": "ASM80 stand-alone assembler (fork of asm80)",
   "main": "asm80.js",
   "scripts": {

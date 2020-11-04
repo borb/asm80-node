@@ -1429,7 +1429,6 @@ if (typeof Buffer === 'undefined')
           [null, o, v]
         );
       } catch (e) {
-        console.log(e);
         var a = e.s || "Internal error";
         return (
           e.e && (e = "object" == typeof e.e ? e.e : { msg: e.e, s: e.s }),
