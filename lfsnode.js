@@ -1,11 +1,9 @@
-/*global Buffer, process*/
 /* eslint-disable no-console */
 
 var fs = require("fs");
 var path = require("path");
 
 module.exports = {
-
   load: function(fn, binary){
     try {
       console.log("Processing: "+path.resolve(process.cwd(), fn));
@@ -24,5 +22,4 @@ module.exports = {
   saveRaw: function(fn,data){
     fs.writeFileSync(path.resolve(process.cwd(), fn),new Buffer(data));
   }
-  };
-
+};
