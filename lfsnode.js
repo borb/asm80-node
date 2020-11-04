@@ -3,6 +3,11 @@
 var fs = require("fs");
 var path = require("path");
 
+var Buffer;
+
+if (typeof Buffer === 'undefined')
+  Buffer = require("buffer");
+
 module.exports = {
   load: function(fn, binary){
     try {

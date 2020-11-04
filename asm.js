@@ -41,7 +41,10 @@ var ASM = {};
 var Parser = require("./parser.js").Parser;
 var btoa = require("btoa");
 var atob = require("atob");
-var Buffer
+var Buffer;
+
+if (typeof Buffer === 'undefined')
+  Buffer = require("buffer");
 
 !(function (e, n) {
   "undefined" != typeof module

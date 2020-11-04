@@ -1,5 +1,8 @@
-/*global Uint8Array, Buffer, process*/
 /* eslint-disable no-console */
+var Buffer;
+
+if (typeof Buffer === 'undefined')
+  Buffer = require("buffer");
 
 var rle1Decode = function(encoded) {
   var output = [];
