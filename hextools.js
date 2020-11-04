@@ -4,9 +4,9 @@ var Buffer;
 if (typeof Buffer === 'undefined')
   Buffer = require("buffer");
 
-var rle1Decode = function(encoded) {
+var rle1Decode = function (encoded) {
   var output = [];
-  encoded.forEach(function(pair) {
+  encoded.forEach(function (pair) {
     if (typeof pair == "number") {
       output.push(pair);
       return;
@@ -29,7 +29,7 @@ var toHex2 = function(n) {return toHexN(n & 0xff,2);};
 var toHex4 = function(n) {return toHexN(n & 0xffff,4);};
 */
 
-var makeSNA = function(V, entry) {
+var makeSNA = function (V, entry) {
   var dummyRLE = [
     63,
     56,
@@ -554,7 +554,7 @@ var makeSNA = function(V, entry) {
     [2, 0],
     [5, 66],
     60,
-    0
+    0,
   ];
 
   var sna = new Uint8Array(65536 + 27);
@@ -584,7 +584,7 @@ var makeSNA = function(V, entry) {
   return new Buffer(sna);
 };
 
-var aconcat = function(a, b) {
+var aconcat = function (a, b) {
   var out = [];
   var i;
   for (i = 0; i < a.length; i++) {
@@ -596,7 +596,7 @@ var aconcat = function(a, b) {
   return out;
 };
 
-var tapdata = function(data, type) {
+var tapdata = function (data, type) {
   var out = [];
   var sum = type;
   var len;
@@ -612,7 +612,7 @@ var tapdata = function(data, type) {
   return out;
 };
 
-var makeTapBlock = function(addr, data, num) {
+var makeTapBlock = function (addr, data, num) {
   var len = data.length;
   var file = [
     3,
@@ -631,12 +631,12 @@ var makeTapBlock = function(addr, data, num) {
     addr & 0xff,
     addr >> 8,
     0,
-    128
+    128,
   ];
   return aconcat(tapdata(file, 0), tapdata(data, 255));
 };
 
-var makeTAP = function(V) {
+var makeTAP = function (V) {
   var op;
   var addr = null;
   var len = 0;
@@ -675,7 +675,7 @@ var makeTAP = function(V) {
 
 var RAM = [];
 
-var hexLine = function(ln, offset) {
+var hexLine = function (ln, offset) {
   var i;
   if (ln[0] !== ":") {
     return false;
@@ -694,7 +694,7 @@ var hexLine = function(ln, offset) {
   return addrx;
 };
 
-var readHex = function(hex, offset) {
+var readHex = function (hex, offset) {
   var hexlines = hex.split(/\n/);
   var lastaddr = 0;
   for (var i = 0; i < hexlines.length; i++) {
@@ -704,21 +704,21 @@ var readHex = function(hex, offset) {
   return lastaddr;
 };
 
-var hex2com = function(hex) {
+var hex2com = function (hex) {
   RAM = new Uint8Array(65536);
   var lastaddr = readHex(hex, 0) + 1;
   var out = RAM.subarray(0x100, lastaddr);
   return Buffer.from(out);
 };
 
-var hex2bin = function(hex, from, to) {
+var hex2bin = function (hex, from, to) {
   RAM = new Uint8Array(65536);
   readHex(hex, 0) + 1;
   var out = RAM.subarray(from, to + 1);
   return Buffer.from(out);
 };
 
-var hex2prg = function(hex, ent) {
+var hex2prg = function (hex, ent) {
   if (ent < 0x810) {
     console.log("ENT must be above $810");
     process.exit(-1);
@@ -756,5 +756,5 @@ module.exports = {
   hex2com: hex2com,
   hex2bin: hex2bin,
   makeSNA: makeSNA,
-  makeTAP: makeTAP
+  makeTAP: makeTAP,
 };

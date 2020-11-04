@@ -63,7 +63,7 @@ program
   )
   .option("-n, --nolist", "Suppress listing")
   .option("-m, --machine <type>", "Processor type (see below)")
-  .on("--help", function() {
+  .on("--help", function () {
     console.log("  Machine types:");
     console.log("");
     if (Monolith) {
@@ -80,7 +80,7 @@ if (!program.args.length) {
   program.help();
 }
 
-var asmType = function(fn) {
+var asmType = function (fn) {
   var type = "unknown";
   switch (path.extname(fn).toUpperCase()) {
     case ".A80":
@@ -127,7 +127,7 @@ var mpath = path.parse(fn);
 var root = mpath.dir;
 //console.log(mpath);
 
-ASM.fileGet(function(fn, binary) {
+ASM.fileGet(function (fn, binary) {
   var nfn = path.resolve(root, fn);
   //console.log("Include", path.resolve(root,fn));
   return LFS.load(nfn, binary);
