@@ -44,8 +44,6 @@ var path = require("path");
 var LFS = require("./lfsnode.js");
 var hextools = require("./hextools.js");
 
-var atob = require("atob");
-
 var pjson = require("./package.json");
 var corejson = require("./core.json");
 

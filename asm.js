@@ -39,19 +39,16 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 var ASM = {};
 var Parser = require("./parser.js").Parser;
-var atob = require("atob");
-var Buffer;
+var Buffer, atob, btoa;
 
 if (typeof Buffer === 'undefined')
   Buffer = require("buffer");
 
-var btoa = function (str) {
-  var buffer = str instanceof Buffer
-    ? str
-    : Buffer.from(str.toString(), 'binary');
+if (typeof btoa === 'undefined')
+  btoa = require("btoa");
 
-  return buffer.toString('base64');
-}
+if (typeof atob === 'undefined')
+  atob = require("atob")
 
 !(function (e, n) {
   "undefined" != typeof module
