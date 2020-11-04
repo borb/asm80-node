@@ -39,16 +39,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 var ASM = {};
 var Parser = require("./parser.js").Parser;
-var Buffer, atob, btoa;
-
-if (typeof Buffer === 'undefined')
-  Buffer = require("buffer");
-
-if (typeof btoa === 'undefined')
-  btoa = require("btoa");
-
-if (typeof atob === 'undefined')
-  atob = require("atob")
+var atob = require("atob-lite");
+var btoa = require("btoa-lite");
 
 !(function (e, n) {
   "undefined" != typeof module

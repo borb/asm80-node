@@ -1,6 +1,6 @@
 {
   "name": "@justnine/asm80",
-  "version": "1.11.14-borb3",
+  "version": "1.11.14-borb4",
   "description": "ASM80 stand-alone assembler (fork of asm80)",
   "main": "asm80.js",
   "scripts": {
@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/borb/asm80-node#readme",
   "dependencies": {
-    "atob": "^2.1.2",
-    "btoa": "^1.2.1",
+    "atob-lite": "^2.0.0",
+    "btoa-lite": "^1.0.0",
     "buffer": "^5.7.0",
     "commander": "^2.20.3"
   }
